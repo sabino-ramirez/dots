@@ -4,7 +4,40 @@ return {
   -- tmux + nvim navigation collab
   {
     "christoomey/vim-tmux-navigator",
-    lazy = false
+    lazy = false,
+  },
+
+  -- true zen
+  {
+    "Pocco81/TrueZen.nvim",
+    cmd = { "TZAtaraxis", "TZMinimalist" },
+    config = function()
+      require("true-zen").setup {
+        modes = {
+          ataraxis = {
+            shade = "dark",
+            -- backdrop = 0.2,
+            minimum_writing_area = {
+              width = 100,
+              height = 65,
+            },
+            quit_untoggles = true,
+            padding = {
+              left = 20,
+              right = 20,
+              top = 8,
+              bottom = 5,
+            },
+          },
+        },
+      }
+    end,
+  },
+
+  -- disable which-key
+  {
+    "folke/which-key.nvim",
+    enabled = false,
   },
 
   -- default treesitter parsers
@@ -27,9 +60,9 @@ return {
         "go",
         "gosum",
         "gomod",
-        "python"
-      }
-    }
+        "python",
+      },
+    },
   },
 
   -- In order to modify the `lspconfig` configuration:
@@ -59,8 +92,8 @@ return {
         "stylua",
         "jedi-language-server",
         "typescript-language-server",
-        "gopls"
+        "gopls",
       },
     },
-  }
+  },
 }

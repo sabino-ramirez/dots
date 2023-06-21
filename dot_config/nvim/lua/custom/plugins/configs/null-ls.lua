@@ -1,4 +1,4 @@
-local null_ls = require("null-ls")
+local null_ls = require "null-ls"
 
 local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
@@ -11,14 +11,17 @@ local sources = {
   formatting.prettier,
 
   -- python
-  formatting.black,
+  -- formatting.black,
+  formatting.black.with {
+    extra_args = { "--preview" },
+  },
   lint.flake8,
 
   -- lua
-  formatting.stylua
+  formatting.stylua,
 }
 
 null_ls.setup {
   debug = true,
-  sources = sources
+  sources = sources,
 }

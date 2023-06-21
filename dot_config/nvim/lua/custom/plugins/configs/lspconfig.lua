@@ -31,8 +31,27 @@ lspconfig.jedi_language_server.setup {
 
   cmd = { "jedi-language-server" },
   filetypes = { "python" },
+  -- single_file_support = false,
   single_file_support = true,
 }
+
+-- lspconfig.pyright.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--
+--   cmd = { "pyright-langserver", "--stdio" },
+--   filetypes = { "python" },
+--   -- root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+--   settings = {
+--     python = {
+--       autosearchPaths = true,
+--       diagnosticMode = "workspace",
+--       useLibraryCodeForTypes = true,
+--     },
+--   },
+--
+--   single_file_support = true,
+-- }
 
 lspconfig.gopls.setup {
   on_attach = my_on_attach,
